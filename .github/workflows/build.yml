@@ -1,4 +1,4 @@
-name: CI/CD Pipeline with SonarQube and Docker
+name: CI/CD Pipeline with SonarQube and Docker.
 
 on:
   push:
