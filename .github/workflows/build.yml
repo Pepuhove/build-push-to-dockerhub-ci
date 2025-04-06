@@ -71,7 +71,7 @@ jobs:
           sudo apt-get install -y trivy
 
       - name: Run Trivy Scan on Image
-        run: trivy image ${{ secrets.GITHUB_USERNAME }}/app:latest --format json -o trivy-image-report.json
+        run: trivy image ${{ secrets.GITHUB_USERNAME }}/hello-world:latest --format json -o trivy-image-report.json
 
       - name: Install Gitleaks
         run: sudo apt install gitleaks -y
@@ -83,4 +83,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hello-world:latest
