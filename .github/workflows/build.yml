@@ -84,7 +84,7 @@ jobs:
         run: trivy image ${{ secrets.DOCKERHUB_USERNAME }}/app:latest --format json -o trivy-image-report.json
 
       - name: Upload Trivy Report as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trivy-image-report
           path: trivy-image-report.json
