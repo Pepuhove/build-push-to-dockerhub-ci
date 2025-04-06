@@ -71,7 +71,7 @@ jobs:
           sudo apt-get install -y trivy
 
       - name: Run Trivy Scan on Image
-        run: trivy image ${{ secrets.GITHUB_USERNAME }}/hello-world:latest --format json -o trivy-image-report.json
+        run: trivy image ${{ secrets.GITHUB_USERNAME }}/hello-world --format json -o trivy-image-report.json
 
       - name: Install Gitleaks
         run: sudo apt install gitleaks -y
