@@ -6,9 +6,30 @@ on:
       - main
 
 jobs:
+  nodejs:
+    name: Node.js Install & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: subdir/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test
+
   build:
     name: SonarQube Code Analysis
     runs-on: ubuntu-latest
+    needs: nodejs
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
